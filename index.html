@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC > 
+<html ng-app="tetuanApp"> 
+<head> 
+    <title>Diagnóstico de accesibilidad urbana en el distrito de Tetuán</title>
+    <base href="/">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@adappgeo"/>
+    <link href='favicon.png' rel='shortcut icon' type='image/png'>
+    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/leaflet/leaflet.css" />    
+    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/leaflet-label/leaflet-label.css" /> 
+    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="mapa/diagnosticotetuan/css/desktop.css">
+    <link rel="stylesheet" href="mapa/diagnosticotetuan/css/mobile.css">
+</head>
+<body ng-controller="MapController as mapctrl">
+    <div class="nav navbar-fixed-top">     
+        <ul id="one" class="navbar-header">
+            <li class="navbar-brand">
+                <img src="">
+            </li> 
+            <li class="navbar-brand">
+                <a href="./#/">
+                    Diagnóstico de accesibilidad urbana en el distrito de Tetuán
+                </a>
+            </li>            
+        </ul>    
+        <ul id="hd-menu-filtros">            
+            <li class="hd-menu-elm filter-barrio">
+                <div class="hd-menu-elm-main"><span class= "nav-title">{{barrio}}</span></div>
+                <ul class="hd-menu-2">
+                    <li class="ventilla act" ng-click="setSelectedBarrio('Ventilla');setActiveItem()">
+                        <a class="hd-main" href="">Ventilla</a>
+                    </li>
+                    <li class="cuatrocaminos" ng-click="setSelectedBarrio('Cuatro Caminos');setActiveItem()">
+                        <a class="hd-main" href="">Cuatro Caminos</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="hd-menu-elm filter-aceras">
+                <div class="hd-menu-elm-main"><span class= "nav-title">ITINERARIOS</span></div>
+                <ul class="hd-menu-2">
+                    <li ng-click="setSelectedAceras('anchoacera')" >
+                    Ancho de acera
+                    </li>
+                    <li ng-click="setSelectedAceras('anchosdepaso')" >
+                    Ancho de paso
+                    </li>
+                    <li ng-click="setSelectedAceras('pendiente')" >
+                    Pendiente
+                    </li>
+                    <li ng-click="setSelectedAceras('wheelchair')" >
+                    Accesibilidad
+                    </li>                  
+                </ul>
+            </li>            
+            <li class="hd-menu-elm filter-barreras">
+                <div class="hd-menu-elm-main"><i class="fa fa-exclamation-triangle"></i><span class= "nav-title"> {{moon.length}}</span></div>
+                <ul class="hd-menu-2">                    
+                    <li ng-click="setSelectedTopic('')">Todas
+                    </li>
+                    <li ng-repeat="clases in markers | unique: 'tipo' |orderBy: 'tipo' track by $index" ng-click="setSelectedTopic(clases.tipo)">
+                        {{clases.tipo}}
+                    </li>                                                      
+                </ul>     
+            </li>
+        </ul>
+    </div>
+    <div id="mapid" >
+        <leaflet width="100%" height="85%" height="480px" defaults="defaults" maxbounds="maxbounds" layers="layers" geojson="definedOverlays" geojson-nested="true" markers="moon" legend="legend" controls="controls" event-broadcast="events" watch-options="watchOptions" ></leaflet>
+    <button class="icon-map-layers" type="button" ng-click="toggleLayer()" alt="alterna mapa base"><i class="fa fa-clone"></i></button>
+    </div>    
+    <div id="info" class="container" ng-class="activeInfo">
+        <button class="hidebtn" ng-click="unsetInfo()"><i class="fa fa-times"></i></button> 
+        <p>Resultados provisionales del proceso de diagnóstico de accesibilidad en los barrios de Almenara y Cuatro Caminos del Distrito de Tetuán. Recarga la web en el navegador para asegurar la visualización más actualizada.</p>
+        <h2 class="title">Descripción</h2>
+        <p>Webmap correspondiente a los resultados del diagnóstico de accesibilidad del barrio de Cuatro Caminos.</p>
+        <p>Las líneas representan la red urbana de itinerarios peatonales, según su ancho de acera, ancho de paso y pendiente, así como de las condiciones de los pasos de peatón.</p>
+        <p>Para alternar las distintas vistas de los itinerarios utiliza el menú 'ITINERARIOS'</p>
+        <p>Los puntos representan la localización de elementos urbanos que constituyen barrera.</p>
+        <p>Para filtrar por tipo de barrera utiliza el menú <i class="fa fa-exclamation-triangle"></i> barreras</p>
+        <p>
+        <h2 class="title">Definiciones</h2>
+        <p><strong>Red de itinerarios peatonales</strong>: El conjunto de tramos de espacio público urbano reservados para el desplazamiento peatonal.</p>
+        <p><strong>Itinerario peatonal</strong>: Recorrido compuesto por varios tramos consecutivos reservados para el desplazamiento peatonal.</p>
+        <p>Los <strong>tramos de itinerarios</strong> pueden ser por acera; por cruce peatonal entre dos aceras opuestas; y por zona exclusivamente peatonal.</p>
+        <p><strong>Ancho de acera</strong>: Distancia mínima entre la fachada y el bordillo enfrentado de la acera en un tramo de itinerario peatonal.</p>
+        <p><strong>Ancho de paso</strong>: Distancia transversal, libre de barreras en un itinerario peatonal.</p>
+        <p><strong>Barrera</strong>: Elemento que entorpece o inutiliza un itinerario peatonal, dejando un ancho de paso menor al óptimo para el desplazamiento peatonal teniendo en cuenta la diversidad funcional.</p>
+        <h2 class="title">Criterios</h2>
+        <p>Para establecer una clasificación para los tramos de itinerario por acera se emplea el criterio de la <a href="">norma madrileña</a>. Así, según su ancho de paso, los tramos de itinerario peatonal se clasifican en:</p>
+        <ul>
+            <li><strong>Inaccesible: </strong> Ancho de paso menor de 0.90m</li>
+            <li><strong>Practicable: </strong> Ancho de paso entre 0.90 y 1.20m</li>
+            <li><strong>Accesible: </strong> Ancho de paso de más de 1.20m</li>
+        </ul> 
+        <p>Además, en este proyecto se señalan los tramos con <strong>ancho de paso mayor a 1.80m</strong>, distancia suficiente para el cruce entre dos sillas de ruedas con sentidos de desplazamiento opuesto, por lo que se han considerado como barrera elementos urbanos que dejan un ancho menor de 1.8m dentro de estas aceras.</p>
+        <h2 class="title">Descripción de las capas</h2>
+        <p>En este webmap se pueden visualizar los tramos según las distintas variables, pudiendo alternar entre ellas con el menú 'ITINERARIOS'</p>
+        <p>Así, obtenemos las distintas capas: </p>
+        <ul>
+            <li>Itinerarios peatonales según ancho de acera <strong>mínimo</strong> del tramo</li>
+            <li>Itinerarios peatonales según ancho de paso</li>
+            <li>Itinerarios peatonales según pendiente</li>
+            <li>Itinerarios peatonales según accesibilidad</li>
+        </ul>
+        <h3>Tramos de itinerario peatonal por acera, según ancho de acera</h3>
+        <ul>
+            <li><i style="background:blue"></i>Tramos con ancho de acera mínimo mayor que 1.80m.</li>
+            <li><i style="background:green"></i>Tramos con ancho de acera mínimo entre 1.20 y 1.80m.</li>
+            <li><i style="background:orange"></i>Tramos con ancho de acera mínimo entre 0.90 y 1.20m.</li>
+            <li><i style="background:red"></i>Tramos con ancho de acera menor que 0.90m.</li>
+        </ul>
+        <p>Información obtenida mediante levantamiento topográfico.</p>
+        <h3>Tramos de itinerario peatonal por acera, según ancho de paso</h3>
+        <p>Tras analizar el ancho de paso que dejan las barreras encontradas en cada tramo, clasificamos los tramos en:</p>
+        <ul>
+            <li><i style="background:green"></i>Tramo de ancho de paso mayor de 1.20m.</li>
+            <li><i style="background:orange"></i>Tramo de ancho de paso entre 0.90 y 1.20.</li>
+            <li><i style="background:red"></i>Tramo con ancho de paso menor de 0.90m.</li>
+        </ul>
+        <p>Tramos correspondientes a toda la zona de estudio, de la cual se ha obtenido un reportaje fotográfico localizado</p>        
+        <h3>Tramos de itinerario peatonal por acera, según su pendiente</h3>
+        <ul>
+            <li><i style="background:#ffffb2"></i>Tramo con pendiente entre 0 y 2 %</li>
+            <li><i style="background:#fecc5c"></i>Tramo con pendiente entre 0 y 2 %</li>
+            <li><i style="background:#fd8d3c"></i>Tramo con pendiente entre 0 y 2 %</li>
+            <li><i style="background:#f03b20"></i>Tramo con pendiente entre 0 y 2 %</li>
+            <li><i style="background:#bd0026"></i>Tramo con pendiente mayor al 8 %</li>
+        </ul>        
+        <p>Información obtenida mediante <strong>levantamiento topográfico</strong> en toda la zona de estudio del Barrio de Ventilla; y en las calles con aceras de menos de 1.80m de ancho en el barrio de Cuatro Caminos, tras el análisis de la cartografía municipal CM-1000</p>
+        <h3>Tramos, según accesibilidad a PMR</h3>
+        <ul>
+            <li><i style="background:green"></i><strong>Accesible:</strong> Tramo con ancho de paso mayor que 1.20m , pendiente menor del 4% y buen estado del pavimento; o cruce con rebajes en buen estado</li>
+            <li><i style="background:orange"></i><strong>Limitado:</strong> Tramo con ancho de paso entre 0.90 1.20m., o pendiente entre 4-8%, o mal estado del pavimento; o cruce con rebaje en mal estado</li>
+            <li><i style="background:red"></i><strong>No accesible: </strong>Tramos con ancho de paso menor que 0.90m. o pendiente superior al 8%, o cruce sin rebaje que imposibilitan su recorrido en silla de ruedas</li>
+        </ul>
+        <p>Resultado del análisis de accesibilidad de los itinerarios peatonales, combinando los datos de ancho de paso y de pendiente. Así:</p>
+        <h3>Tramos correspondientes a los pasos de peatón</h3>        
+        <ul>
+            <li><i style="background:green"></i>Paso de peatón con rebaje</li>
+            <li><i style="background:orange"></i>Paso de peatón con rebaje en mal estado: Saltos de bordillo, mal estado del pavimento, sin normalizar o sin señalizar</li>
+            <li><i style="background:red"></i>Paso de peatón sin rebaje</li>
+        </ul>
+        <h3>Elementos que reducen el ancho de paso de partida y que constituyen barrera</h3>
+        <p>Tras el análisis de los datos, se han clasificado las barreras en:</p>
+        <ul>
+            <li><strong>Alcorque:</strong> Alcorques sin tapar</li>
+            <li><strong>Armario:</strong> Caja eléctrica</li>
+            <li><strong>Armarioser:</strong> Parquímetro</li>
+            <li><strong>Bolardos:</strong> Bolardos o vallas con el fín de que los vehículos no invadan la zona destinada a peatones.</li>
+            <li><strong>Báculo:</strong> Farola</li>
+            <li><strong>Contenedor:</strong> Contenedores de basura</li>
+            <li><strong>Escaleras: </strong> Escaleras que forman parte del itinerario peatonal. Se indica si disponen de pasamanos y de rampa o alternativa</li>
+            <li><strong>Escalón: </strong> Desnivel en el itinerario de más de 5cm</li>
+            <li><strong>Invasión acera:</strong> Elementos no inmobiliarios, causados por falta de civismo.</li>
+            <li><strong>Obras:</strong> Obras que ocupan el espacio público interfiriendo en los itinerarios peatonales.</li>
+            <li><strong>Obstáculo:</strong> Casos de cortes de <strong>itinerarios táctiles</strong>, interrumpidos por elementos inmobiliarios que pueden ocasionar perplejidad en los viandantes que los emplean.</li>
+            <li><strong>Papelera: Papeleras que ocasionan barrera por su disposición</strong></li>
+            <li><strong>Poste: Poste de madera.</strong></li>
+            <li><strong>Rampa: Rampa que forma parte de itinerario peatonal</strong> </li>
+            <li><strong>Rejillas:</strong> Rejillas en el suelo con huecos mayores de 2cm</li>
+            <li><strong>Señal:</strong> Señalización vertical que ocupa el espacio del recorrido de un itinerario peatonal</li>
+            <li><strong>Tipo de pavimento: </strong>Pavimento en mal estado</li>
+            <li><strong>Torre eléctrica</strong> Torres de alta o media tensión que interrumpen itinerarios peatonales</li>
+        </ul>        
+        <h2 class="title">Acerca de los datos</h2>
+        <ul>
+            <li>Los datos son de elaboración propia y corresponden al reportaje fotográfico geolocalizado y a los trabajos topográficos realizados entre los meses de agosto y octubre de 2016.</li>
+            <li>El levantamiento topográfico se ha apoyado en la Red Topográfica municipal del Ayuntamiento de Madrid.</li>
+            <li>Para el trazado y análisis se ha empleado un Sistema de Información Geográfica, del que este juego de datos es derivado.</li>
+            <li>Los datos de este webmap se encuentran representados en el sistema de referencia WGS84, aunque se ha entregado un juego de datos en el sistema de referencia oficial ETRS89, proyección UTM para facilitar los futuros trabajos a partir de estos.</li>
+        <ul>
+        <p>Si quieres aportar o corregir algún dato puedes escribir al email: <strong>apps(arroba)adappgeo.net</strong></p>
+        <h2 class="title">Elaboración</h2>
+        <ul>  
+            <li>Dirección, análisis y diseño: <a href="http://www.alejandrozappala.com" target="_blank">Alejandro Zappala</a></li>
+            <li>Topografía y reportaje fotográfico: <a href="https://es.linkedin.com/in/cesarmerinost" target="_blank">César Merino</a></li>
+            <li>Asesoría acerca de la movilidad reducida en entorno urbano: Cristina Martínez, Fran López</li>
+        </ul>
+        <p><i class="fa fa-exclamation-triangle"></i> Esta web no recoge ningún dato personal de los visitantes, ni dispone de cookies que afecten de ninguna manera a su privacidad</p>      
+    </div>
+    <div class="footer navbar-fixed-bottom">
+      <ul class="info-buttons">
+        <li ng-click="setActiveInfo()"><a href=""><i class="fa fa-info-circle"></i></a></li>
+      </ul>
+      <ul class="contact">
+        <li>
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-github" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+    <ul>
+        <li ng-repeat="puntos in markers | filterBy:['tipo']:selectedtopic as moon"></li>
+    </ul>
+    <script src="mapa/diagnosticotetuan/vendors/leaflet/leaflet.js"></script>   
+    <script src="mapa/diagnosticotetuan/vendors/leaflet-label/leaflet-label.js"></script>    
+    <script src="mapa/diagnosticotetuan/vendors/angularjs/angular.min.js"></script>  
+    <script src="mapa/diagnosticotetuan/vendors/angular-simple-logger/angular-simple-logger.min.js"></script>
+    <script src="mapa/diagnosticotetuan/vendors/angular-filter/angular-filter.min.js"></script>
+    <script src="mapa/diagnosticotetuan/vendors/ui-leaflet/ui-leaflet.min.js"></script>
+    <script src="mapa/diagnosticotetuan/js/app.js"></script>
+    <script src="mapa/diagnosticotetuan/js/home.js"></script>
+  </body>
+</html>
