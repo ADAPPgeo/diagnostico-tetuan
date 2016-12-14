@@ -1,5 +1,3 @@
-//controlador para el mapa de home
-
 tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$location', '$http', 'leafletData',
     function(leafletMarkerEvents, $scope, $location, $http, leafletData){
 
@@ -155,32 +153,6 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         }
     };
 
-    //markers para estacionamiiento
-
-    var addressParkingToMarkers = function(points, tipo) {
-        return points.map(function(ap) {
-            if (ap.properties){
-                return {
-                    layer: 'estacionamiento',
-                    id: ap.properties.id,
-                    //title: ap.properties.id,                
-                    lat: ap.geometry.coordinates[1],
-                    lng: ap.geometry.coordinates[0], 
-                    icon: {
-                        type: 'div',
-                        iconSize: [0, 0],
-                        popupAnchor:  [0, 0],
-                        html: '<div class="marker-lonely-parking' + '">' + 'hey</div>'
-                    },
-                    message: ap.properties.proportext,
-                    label: {
-                        message: ap.properties.proportext
-                    }
-                }
-            };
-        });
-    };
-
 // markers para barreras
 
     var addressPointsToMarkers = function(points, tipo) {
@@ -262,9 +234,6 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
     $http.get("mapa/diagnosticotetuan/json/ventilla_barreras.geojson").success(function(data, status) {
         $scope.ventilla_barreras = addressPointsToMarkers(data.features, 'barreras');
         $scope.markers=$scope.ventilla_barreras;
-    });
-    $http.get("mapa/diagnosticotetuan/json/ventilla_estacionamiento_reservado.geojson").success(function(data, status) {
-       $scope.ventilla_estacionamiento_densidad = addressParkingToMarkers(data.features, 'reservado');
     });
     
     $scope.longitud_yes =[];
