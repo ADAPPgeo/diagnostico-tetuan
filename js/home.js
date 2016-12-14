@@ -1182,7 +1182,6 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
 
     $scope.setSelectedTopic = function(tipo){        
         $scope.selectedtopic= tipo;
-        console.log('tipo seleccionado: ' + tipo);      
         };
     $scope.setSelectedAceras = function(aceras){
         switch(aceras) {
@@ -1255,7 +1254,6 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
     });
             $scope.markers = $scope.ventilla_barreras; 
 
-    console.log('barrio seleccionado: ' + $scope.barrio);
     $scope.setSelectedFotos();
     $scope.setSelectedBarrio($scope.barrio);
     $scope.setSelectedTopic('ninguna');

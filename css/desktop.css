@@ -315,6 +315,7 @@ li {
     width: 125%;
   }
   .leaflet-popup-content ul > li {
+    text-align: left;
     display: inline-block;
   }
   .leaflet-popup-content ul .imagen {
