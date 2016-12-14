@@ -8,11 +8,11 @@
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@adappgeo"/>
     <link href='favicon.png' rel='shortcut icon' type='image/png'>
-    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/leaflet/leaflet.css" />    
-    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/leaflet-label/leaflet-label.css" /> 
-    <link rel="stylesheet" href="mapa/diagnosticotetuan/vendors/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="mapa/diagnosticotetuan/css/desktop.css">
-    <link rel="stylesheet" href="mapa/diagnosticotetuan/css/mobile.css">
+    <link rel="stylesheet" href="vendors/leaflet/leaflet.css" />    
+    <link rel="stylesheet" href="vendors/leaflet-label/leaflet-label.css" /> 
+    <link rel="stylesheet" href="vendors/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/mobile.css">
 </head>
 <body ng-controller="MapController as mapctrl">
     <div class="nav navbar-fixed-top">     
@@ -203,13 +203,13 @@
     <ul>
         <li ng-repeat="puntos in markers | filterBy:['tipo']:selectedtopic as moon"></li>
     </ul>
-    <script src="mapa/diagnosticotetuan/vendors/leaflet/leaflet.js"></script>   
-    <script src="mapa/diagnosticotetuan/vendors/leaflet-label/leaflet-label.js"></script>    
-    <script src="mapa/diagnosticotetuan/vendors/angularjs/angular.min.js"></script>  
-    <script src="mapa/diagnosticotetuan/vendors/angular-simple-logger/angular-simple-logger.min.js"></script>
-    <script src="mapa/diagnosticotetuan/vendors/angular-filter/angular-filter.min.js"></script>
-    <script src="mapa/diagnosticotetuan/vendors/ui-leaflet/ui-leaflet.min.js"></script>
-    <script src="mapa/diagnosticotetuan/js/app.js"></script>
-    <script src="mapa/diagnosticotetuan/js/home.js"></script>
+    <script src="vendors/leaflet/leaflet.js"></script>   
+    <script src="vendors/leaflet-label/leaflet-label.js"></script>    
+    <script src="vendors/angularjs/angular.min.js"></script>  
+    <script src="vendors/angular-simple-logger/angular-simple-logger.min.js"></script>
+    <script src="vendors/angular-filter/angular-filter.min.js"></script>
+    <script src="vendors/ui-leaflet/ui-leaflet.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/home.js"></script>
   </body>
 </html>
