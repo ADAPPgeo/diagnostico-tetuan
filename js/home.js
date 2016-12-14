@@ -105,7 +105,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         },
         osm: {
             name: 'OpenStreetMap',
-            url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
             type: 'xyz',
             transparent: false,
             layerOptions: {
