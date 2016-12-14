@@ -164,7 +164,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                 var descripcion;
                 var ancho;
                 if (ap.properties.filename){
-                    //fotoimage.src= 'mapa/diagnosticotetuan/img/fotos/'+ ap.properties.filename;
+                    //fotoimage.src= 'diagnostico-tetuan/img/fotos/'+ ap.properties.filename;
                     var width = fotoimage.width;
                     var height = fotoimage.height;
                     if(width>height){
@@ -173,7 +173,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                         var posicion = 'portrait';
                     }                    
                     //foto = '</br><a href="'+ fotoimage.src +'" target= "blank")">Ver foto </a>';            
-                    foto = '<img src="mapa/diagnosticotetuan/img/fotos/' + ap.properties.filename +'"></img>';
+                    foto = '<img src="diagnostico-tetuan/img/fotos/' + ap.properties.filename +'"></img>';
                     //foto = fotoimage.src;                    
                 } else {
                     foto ='</br>Fotografía no disponible. El punto ha sido obtenido por topografía';
@@ -228,10 +228,10 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         });
     };
 
-    $http.get("mapa/diagnosticotetuan/json/cuatrocaminos_barreras.geojson").success(function(data, status) {
+    $http.get("diagnostico-tetuan/json/cuatrocaminos_barreras.geojson").success(function(data, status) {
         $scope.cuatrocaminos_barreras = addressPointsToMarkers(data.features, 'barreras');
     });
-    $http.get("mapa/diagnosticotetuan/json/ventilla_barreras.geojson").success(function(data, status) {
+    $http.get("diagnostico-tetuan/json/ventilla_barreras.geojson").success(function(data, status) {
         $scope.ventilla_barreras = addressPointsToMarkers(data.features, 'barreras');
         $scope.markers=$scope.ventilla_barreras;
     });
@@ -369,7 +369,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
             propuesta='';
         };
         if (feature.properties.filename){
-            foto = '<img src="mapa/diagnosticotetuan/img/fotos/' + feature.properties.filename +'"></img>';
+            foto = '<img src="diagnostico-tetuan/img/fotos/' + feature.properties.filename +'"></img>';
         } else{
             foto='';
         }
@@ -448,7 +448,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         return bocadillo;
     }
 /*Entidades lineales correspondientes al barrio de Ventilla*/
-    $http.get('mapa/diagnosticotetuan/json/ventilla_ip_pasospeaton.geojson').success(function(data) {      
+    $http.get('diagnostico-tetuan/json/ventilla_ip_pasospeaton.geojson').success(function(data) {      
         angular.extend($scope.linegroup.ventilla_pasospeaton, {
             ventilla_cruces_yes: {
                 data: data.features,                    
@@ -500,7 +500,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
             }
         });
     });
-    $http.get('mapa/diagnosticotetuan/json/ventilla_ip_aceras.geojson').success(function(data) {
+    $http.get('diagnostico-tetuan/json/ventilla_ip_aceras.geojson').success(function(data) {
         angular.extend($scope.linegroup.ventilla_anchoacera, {
             ventilla_ip_pasospeaton_yes: $scope.linegroup.ventilla_pasospeaton.ventilla_cruces_yes,
             ventilla_ip_pasospeaton_limited: $scope.linegroup.ventilla_pasospeaton.ventilla_cruces_limited,
@@ -817,7 +817,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
 
 /*Entidades lineales correspondientes al barrio de Cuatro Caminos*/
 
-    $http.get('mapa/diagnosticotetuan/json/cuatrocaminos_ip_pasospeaton.geojson').success(function(data) {      
+    $http.get('diagnostico-tetuan/json/cuatrocaminos_ip_pasospeaton.geojson').success(function(data) {      
         angular.extend($scope.linegroup.cuatrocaminos_pasospeaton, {
             cuatrocaminos_cruces_yes: {
                 data: data.features,                    
@@ -868,7 +868,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         
         });
     });
-    $http.get('mapa/diagnosticotetuan/json/cuatrocaminos_ip_aceras.geojson').success(function(data) {
+    $http.get('diagnostico-tetuan/json/cuatrocaminos_ip_aceras.geojson').success(function(data) {
         angular.extend($scope.linegroup.cuatrocaminos_anchoacera, {
             cuatrocaminos_ip_pasospeaton_yes: $scope.linegroup.cuatrocaminos_pasospeaton.cuatrocaminos_cruces_yes,
             cuatrocaminos_ip_pasospeaton_limited: $scope.linegroup.cuatrocaminos_pasospeaton.cuatrocaminos_cruces_limited,
