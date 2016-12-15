@@ -6,17 +6,15 @@
   #one {
     position: fixed;
     width: 100%;
-    height: 5%;
     background: #fff;
     z-index: 20000;
+    height: 20px;
   }
   #one .navbar-brand {
     display: inline-block;
-    line-height: 5%;
-    height: 5%;
-    vertical-align: middle;
   }
   #one .navbar-brand a {
+    vertical-align: middle;
     color: #001c41;
     font-size: 1.2em;
   }
@@ -27,7 +25,7 @@
   /*Menú Desplegable filtros*/
   #hd-menu-filtros {
     position: fixed;
-    top: 5%;
+    top: 20px;
     width: 100%;
     line-height: 5%;
     vertical-align: middle;
@@ -70,7 +68,7 @@
   }
   #hd-menu-filtros .hd-menu-elm {
     display: inline-block;
-    width: 33%;
+    width: 25%;
     text-align: center;
     background: #001c41;
     line-height: 39px;
@@ -93,7 +91,7 @@
   }
   #hd-menu-filtros .hd-menu-elm:hover .hd-menu-2 {
     display: block;
-    top: 39px;
+    top: 100%;
     z-index: -1;
   }
   #hd-menu-filtros .hd-menu-2 {
@@ -139,6 +137,12 @@
     font-family: 'Ubuntu Condensed';
     width: 100%;
     font-size: .75em;
+    bottom: 5px;
+    background-color: #001c41;
+    color: white;
+  }
+  .leaflet-container .leaflet-control-attribution a {
+    color: #7cede9;
   }
   .virtualscrll {
     position: fixed;
@@ -150,8 +154,8 @@
   }
   #mapid button {
     position: absolute;
-    top: 15%;
-    right: 10px;
+    top: 64px;
+    right: 5px;
     z-index: 500;
     border: none;
     border-radius: 5px;
@@ -163,6 +167,7 @@
     text-align: center;
   }
   .legend {
+    bottom: 15px;
     background: rgba(255, 255, 255, 0.7);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -225,6 +230,12 @@
   .leaflet-popup-tip {
     background: #001c41;
   }
+  .leaflet-top .leaflet-control {
+    margin-top: 5px;
+  }
+  .leaflet-left .leaflet-control {
+    margin-left: 5px;
+  }
   .leaflet-control-layers-toggle {
     display: none;
   }
@@ -234,7 +245,6 @@
   #info {
     position: fixed;
     top: 100%;
-    padding-top: 8%;
     padding-left: 15px;
     padding-right: 15px;
     z-index: 2000;
@@ -247,9 +257,7 @@
     transition: all .6s;
   }
   #info.act {
-    position: absolute;
-    top: 5%;
-    padding-top: 8%;
+    top: 0px;
     text-align: justify;
     scroll-behavior: auto;
   }
@@ -259,47 +267,6 @@
     float: left;
     margin-right: 8px;
     opacity: 1;
-  }
-  #info .logo {
-    padding-bottom: 40px;
-  }
-  #info .logo img {
-    width: 180px;
-  }
-  #info .logo span {
-    display: block;
-    padding-top: 5px;
-    padding-left: 7px;
-    font-size: 1.1em;
-  }
-  #info .logo_p {
-    display: inline-block;
-  }
-  #info .logo_p img {
-    height: 30px;
-    padding-left: 20px;
-  }
-  #info .iconos_logo {
-    height: 12%;
-  }
-  #info .iconos_logo .icono_logo {
-    display: inline-block;
-    width: 25%;
-    height: 40%;
-    padding-top: 50px;
-  }
-  #info .iconos_logo .icono_logo img {
-    padding-left: 30%;
-    margin-bottom: 15px;
-  }
-  #info .iconos_logo .icono_logo span {
-    display: block;
-    text-align: center;
-  }
-  #info .iconos_logo .icono_logo_plus {
-    height: 40%;
-    display: inline-block;
-    margin-top: -50px;
   }
   #info h3 {
     text-align: center;
@@ -320,23 +287,24 @@
     position: fixed;
     bottom: 0;
     z-index: 2500;
-    line-height: 35px;
+  }
+  .footer .fa {
+    font-size: 2em;
+    padding: 2px 6px;
   }
   .footer .info-buttons {
-    display: inline-block;
+    font-size: 1.5em;
+    width: 80%;
     margin: 0;
-    width: 55%;
+    display: inline-block;
   }
   .footer .info-buttons li {
-    height: 5%;
-    display: inline-block;
-    width: 60%;
+    line-height: 5%;
     text-align: center;
   }
   .footer .info-buttons li > a {
+    color: white;
     vertical-align: middle;
-    font-size: 1.2em;
-    padding: 0px 6px;
   }
   .footer .contact {
     margin: 0;
@@ -351,9 +319,5 @@
     color: white;
     vertical-align: middle;
     font-size: 1em;
-  }
-  .footer .fa {
-    font-size: 2em;
-    padding: 2px 6px;
   }
 }

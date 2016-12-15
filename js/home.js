@@ -203,12 +203,12 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                         popupAnchor:  [0, 0],
                         html: '<div class="marker-lonely-' + colorin + '">' + ap.properties.tipo.substring(0,3) + '</div>'
                     },                    
-                    message: '<ul class="ficha">'
+                    message: '<h2>' + ap.properties.tipo + '</h2>'
+                    + '<ul class="ficha">'
                     + '<li class="imagen">' + foto + '</li>'
 
 
                     + '<li class="contenido">'                   
-                    + ap.properties.tipo
                     + '</br>'+ ap.properties.calle
                     + descripcion
                     + ancho

@@ -15,14 +15,12 @@
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/leaflet/leaflet.css" />    
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/leaflet-label/leaflet-label.css" /> 
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="diagnostico-tetuan/css/style.min.css">
+    <link rel="stylesheet" href="diagnostico-tetuan/css/desktop.css">
+    <link rel="stylesheet" href="diagnostico-tetuan/css/mobile.css">
 </head>
 <body ng-controller="MapController as mapctrl">
     <div class="nav navbar-fixed-top">     
         <ul id="one" class="navbar-header">
-            <li class="navbar-brand">
-                <img src="">
-            </li> 
             <li class="navbar-brand">
                 <a href="./#/">
                     Diagnóstico de accesibilidad urbana en el distrito de Tetuán
@@ -75,7 +73,7 @@
     <button class="icon-map-layers" type="button" ng-click="toggleLayer()" alt="alterna mapa base"><i class="fa fa-clone"></i></button>
     </div>    
     <div id="info" class="container" ng-class="activeInfo">
-        <button class="hidebtn" ng-click="unsetInfo()"><i class="fa fa-times"></i></button> 
+        <p><button class="hidebtn" ng-click="unsetInfo()"><i class="fa fa-times"></i></button></p>
         <p>Resultados provisionales del proceso de diagnóstico de accesibilidad en los barrios de Almenara y Cuatro Caminos del Distrito de Tetuán. Recarga la web en el navegador para asegurar la visualización más actualizada.</p>
         <h2 class="title">Descripción</h2>
         <p>Webmap correspondiente a los resultados del diagnóstico de accesibilidad del barrio de Cuatro Caminos.</p>

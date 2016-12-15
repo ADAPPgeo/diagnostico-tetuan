@@ -7,7 +7,7 @@
   src: url('../fonts/big_noodle_titling.ttf');
 }
 html {
-  background-color: #A3A3A3;
+  background-color: #001c41;
 }
 html::-webkit-scrollbar {
   /* This is the magic bit */
@@ -95,12 +95,11 @@ li {
 @media only screen and (min-width: 700px) {
   /*Barra superior*/
   .navbar-fixed-top {
-    height: 10%;
+    height: 57px;
   }
   #one {
     position: fixed;
     width: 100%;
-    height: 5%;
     background: #fff;
     z-index: 20000;
   }
@@ -108,7 +107,6 @@ li {
     padding-top: 2px;
     padding-left: 10px;
     display: inline-block;
-    height: 5%;
   }
   #one .navbar-brand a {
     vertical-align: middle;
@@ -123,7 +121,7 @@ li {
   /*Menús Desplegables filtros*/
   #hd-menu-filtros {
     position: fixed;
-    top: 5%;
+    top: 27px;
     width: 100%;
     background: #001c41;
     z-index: 2000;
@@ -152,17 +150,15 @@ li {
     background: #001c41;
     position: absolute;
     margin-right: 0;
-    top: 40px;
+    top: 10%;
   }
   #hd-menu-filtros .hd-menu-elm {
     display: inline-block;
     width: 30%;
     text-align: center;
     background: #001c41;
-    line-height: 39px;
   }
   #hd-menu-filtros .hd-menu-elm > .hd-menu-elm-main {
-    line-height: 39px;
     vertical-align: middle;
   }
   #hd-menu-filtros .hd-menu-elm > .hd-menu-elm-main span {
@@ -183,7 +179,7 @@ li {
   }
   #hd-menu-filtros .hd-menu-elm:hover .hd-menu-2 {
     display: block;
-    top: 39px;
+    top: 100%;
     z-index: -1;
   }
   #hd-menu-filtros .hd-menu-2 li {
@@ -253,12 +249,14 @@ li {
     height: 20px;
   }
   #mapid {
-    bottom: 5px;
+    top: 67px;
+    bottom: 100px;
     z-index: -30000;
+    display: block;
   }
   #mapid button {
     position: fixed;
-    top: 11%;
+    top: 73px;
     right: 10px;
     z-index: 1000;
     border: none;
@@ -374,9 +372,15 @@ li {
     width: 250px;
   }
   .leaflet-container .leaflet-control-attribution {
+    bottom: 5px;
     font-family: 'Ubuntu Condensed';
     width: 100%;
     font-size: .75em;
+    background-color: #001c41;
+    color: white;
+  }
+  .leaflet-container .leaflet-control-attribution a {
+    color: #7cede9;
   }
   .leaflet-control-layers-toggle {
     display: none;
@@ -389,7 +393,7 @@ li {
     top: 100%;
     width: 100%;
     padding-bottom: 36px;
-    z-index: 1000;
+    z-index: 2000;
     box-sizing: border-box;
     -webkit-transition: all .6s;
     -moz-transition: all .6s;
@@ -400,15 +404,15 @@ li {
     position: absolute;
     text-align: justify;
     scroll-behavior: auto;
-    top: 5%;
+    top: 0px;
     padding-top: 5%;
   }
   #info p {
     font-family: 'Ubuntu Condensed';
   }
   #info .hidebtn {
-    width: 36px;
-    height: 36px;
+    width: 30px;
+    height: 30px;
     float: right;
     border: none;
     box-shadow: none;
@@ -431,6 +435,25 @@ li {
     z-index: 2500;
     line-height: 35px;
   }
+  .footer .info-buttons {
+    display: inline-block;
+    margin: 0;
+    width: 55%;
+    line-height: 35px;
+    font-size: 1.8em;
+  }
+  .footer .info-buttons li {
+    display: inline-block;
+    vertical-align: middle;
+    width: 80%;
+    text-align: center;
+  }
+  .footer .info-buttons li:hover {
+    color: #7cede9;
+  }
+  .footer .info-buttons li:focus {
+    color: #7cede9;
+  }
   .footer .contact {
     margin: 0;
     float: right;
@@ -444,20 +467,5 @@ li {
   .footer .fa {
     padding: 0 6px;
     font-size: 2em;
-  }
-  .info-buttons {
-    display: inline-block;
-    margin: 0;
-    width: 55%;
-    line-height: 35px;
-  }
-  .info-buttons li {
-    display: inline-block;
-    vertical-align: middle;
-    width: 49%;
-    text-align: center;
-  }
-  .info-buttons li > a {
-    padding: 0px 12px;
   }
 }
