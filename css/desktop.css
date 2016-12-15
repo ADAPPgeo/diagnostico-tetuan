@@ -407,6 +407,8 @@ li {
     font-family: 'Ubuntu Condensed';
   }
   #info .hidebtn {
+    width: 36px;
+    height: 36px;
     float: right;
     border: none;
     box-shadow: none;
@@ -417,42 +419,6 @@ li {
     float: left;
     margin-right: 8px;
     opacity: 1;
-  }
-  #info .logo {
-    padding-left: 30%;
-    padding-bottom: 40px;
-  }
-  #info .logo img {
-    width: 180px;
-  }
-  #info .logo span {
-    display: block;
-    padding-top: 5px;
-    padding-left: 7px;
-    font-size: 17px;
-  }
-  #info .iconos_logo {
-    padding-left: 10%;
-    height: 12%;
-  }
-  #info .iconos_logo .icono_logo {
-    display: inline-block;
-    width: 25%;
-    height: 40%;
-    padding-top: 50px;
-  }
-  #info .iconos_logo .icono_logo img {
-    padding-left: 40%;
-    margin-bottom: 15px;
-  }
-  #info .iconos_logo .icono_logo span {
-    display: block;
-    text-align: center;
-  }
-  #info .iconos_logo .icono_logo_plus {
-    height: 40%;
-    display: inline-block;
-    margin-top: -50px;
   }
   #info h3 {
     text-align: center;
@@ -483,13 +449,15 @@ li {
     display: inline-block;
     margin: 0;
     width: 55%;
+    line-height: 35px;
   }
   .info-buttons li {
     display: inline-block;
+    vertical-align: middle;
     width: 49%;
     text-align: center;
   }
   .info-buttons li > a {
-    padding: 0px 6px;
+    padding: 0px 12px;
   }
 }
