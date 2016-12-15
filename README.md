@@ -33,13 +33,13 @@ Los datos geográficos de esta web se encuentran representados en coordenadas ge
 
 ## Elaboración
 
-Dirección y desarrollo: Alejandro Zappala @alayzappala
-Topografía y reportaje fotográfico: César Merino
+* Dirección y desarrollo: Alejandro Zappala @alayzappala
+* Topografía y reportaje fotográfico: César Merino
 
 ## Agradecimientos
 
-Oscar Navarro
-Cristina Martínez
-Fran López
+* Oscar Navarro
+* Cristina Martínez
+* Fran López
 
 Por su tiempo compartiendo unos fantásticos paseos.
