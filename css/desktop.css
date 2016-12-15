@@ -297,11 +297,11 @@ li {
     margin: -10px;
   }
   .leaflet-bar a:hover {
-    background-color: #f4f4f4;
+    background-color: #001c41;
   }
   .leaflet-bar a.leaflet-disabled {
     cursor: default;
-    background-color: #f4f4f4;
+    background-color: #001c41;
     color: #bbb;
   }
   .leaflet-popup-content-wrapper {
