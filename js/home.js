@@ -1186,6 +1186,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
     $scope.setSelectedAceras = function(aceras){
         switch(aceras) {
             case 'anchoacera':
+                $scope.itinerarios = 'Ancho de acera';
                 $scope.legend = $scope.legend_anchoacera;
                 if ($scope.barrio== 'Ventilla'){
                     $scope.definedOverlays = $scope.linegroup.ventilla_anchoacera;
@@ -1195,6 +1196,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                 }
                 break;
             case 'pendiente':
+                $scope.itinerarios = 'Pendiente';
                 $scope.legend = $scope.legend_pendiente;
                 if ($scope.barrio== 'Ventilla'){
                     $scope.definedOverlays = $scope.linegroup.ventilla_pendientes;
@@ -1204,6 +1206,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                 }
                 break;
             case 'anchosdepaso':
+                $scope.itinerarios = 'Ancho de paso';
                 $scope.legend = $scope.legend_anchopaso;
                 if ($scope.barrio== 'Ventilla'){
                     $scope.definedOverlays = $scope.linegroup.ventilla_anchopaso;
@@ -1213,6 +1216,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                 }
                 break;
             case 'wheelchair':
+                $scope.itinerarios = 'Accesibilidad';
                 $scope.legend = $scope.legend_wheelchair;
                 if ($scope.barrio== 'Ventilla'){
                     $scope.definedOverlays = $scope.linegroup.ventilla_wheelchair;
@@ -1244,6 +1248,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
             $scope.markers = $scope.ventilla_barreras; 
             $scope.maxbounds = $scope.zona.ventilla;
         }
+        $scope.itinerarios = 'Itinerarios';
         $scope.legend = $scope.legend_anchopaso;    
         $scope.setSelectedFotos();
     };
@@ -1252,8 +1257,8 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         barrio: 'Ventilla',
         markers: $scope.ventilla_barreras
     });
-            $scope.markers = $scope.ventilla_barreras; 
-
+    $scope.markers = $scope.ventilla_barreras;
+    $scope.itinerarios = 'Itinerarios';
     $scope.setSelectedFotos();
     $scope.setSelectedBarrio($scope.barrio);
     $scope.setSelectedTopic('ninguna');
