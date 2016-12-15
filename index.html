@@ -2,17 +2,20 @@
 <html ng-app="tetuanApp"> 
 <head> 
     <title>Diagnóstico de accesibilidad urbana en el distrito de Tetuán</title>
+    <meta NAME="description" content="Aplicación web para mostrar los resultados del diagnóstico de accesibilidad efectuados en los barrios de Almenara y Cuatro Caminos del Distrito de Tetuán del Municipio de Madrid." />
+    <meta NAME="keywords" content="diagnóstico, accesibilidad, Ventilla, Cuatro Caminos, Tetuán, cartografía, gis, topografía, software libre" />
     <base href="/">
+    <meta NAME="page-type" CONTENT="information resource">
+    <meta NAME="Autor" content="Alejandro Zappala" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="twitter:card" content="summary"/>
-    <meta name="twitter:site" content="@adappgeo"/>
+    <meta NAME="viewport" content="width=device-width, initial-scale=1.0">
+    <meta NAME="twitter:card" content="summary"/>
+    <meta NAME="twitter:site" content="@adappgeo"/>
     <link href='favicon.png' rel='shortcut icon' type='image/png'>
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/leaflet/leaflet.css" />    
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/leaflet-label/leaflet-label.css" /> 
     <link rel="stylesheet" href="diagnostico-tetuan/vendors/fontawesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="diagnostico-tetuan/css/desktop.css">
-    <link rel="stylesheet" href="diagnostico-tetuan/css/mobile.css">
+    <link rel="stylesheet" href="diagnostico-tetuan/css/style.min.css">
 </head>
 <body ng-controller="MapController as mapctrl">
     <div class="nav navbar-fixed-top">     
@@ -187,7 +190,7 @@
       </ul>
       <ul class="contact">
         <li>
-          <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/adappgeo" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
         </li>
         <li>
           <a href="https://github.com/adappgeo/diagnostico-tetuan" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a>
