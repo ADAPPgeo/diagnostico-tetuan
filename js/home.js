@@ -95,7 +95,7 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
             layerOptions: {
                 layers: 'OI.OrthoimageCoverage',
                 format: 'image/png',
-                attribution: 'PNOA cedido por © <a href="http://www.ign.es/ign/main/index.do" target="_blank">Instituto Geográfico Nacional de España</a>',
+                attribution: 'PNOA ofrecido por © <a href="http://www.ign.es/ign/main/index.do" target="_blank">Instituto Geográfico Nacional de España</a>',
                 showOnSelector: false
             },
             layerParams: {
