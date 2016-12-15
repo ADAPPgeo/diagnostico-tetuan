@@ -129,7 +129,7 @@ li {
     font-size: 1.5em;
   }
   #hd-menu-filtros .hd-menu-elm .hd-menu-2 {
-    width: 30%;
+    width: 33%;
     max-height: 370px;
     overflow: auto;
     text-align: left;
@@ -154,7 +154,7 @@ li {
   }
   #hd-menu-filtros .hd-menu-elm {
     display: inline-block;
-    width: 30%;
+    width: 33%;
     text-align: center;
     background: #001c41;
   }
@@ -413,7 +413,6 @@ li {
   #info .hidebtn {
     width: 30px;
     height: 30px;
-    float: right;
     border: none;
     box-shadow: none;
   }
@@ -433,13 +432,13 @@ li {
     position: fixed;
     bottom: 0;
     z-index: 2500;
-    line-height: 35px;
+    line-height: 1.8em;
   }
   .footer .info-buttons {
     display: inline-block;
     margin: 0;
     width: 55%;
-    line-height: 35px;
+    line-height: 1.8em;
     font-size: 1.8em;
   }
   .footer .info-buttons li {

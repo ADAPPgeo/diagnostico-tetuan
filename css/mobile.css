@@ -1,7 +1,7 @@
 @media only screen and (min-width: 0px) and (max-width: 700px) {
   /*Barra superior*/
   .navbar-fixed-top {
-    height: 10%;
+    height: 57px;
   }
   #one {
     position: fixed;
@@ -68,7 +68,7 @@
   }
   #hd-menu-filtros .hd-menu-elm {
     display: inline-block;
-    width: 25%;
+    width: 33%;
     text-align: center;
     background: #001c41;
     line-height: 39px;
@@ -257,29 +257,21 @@
     transition: all .6s;
   }
   #info.act {
+    position: absolute;
     top: 0px;
+    padding-top: 5%;
     text-align: justify;
     scroll-behavior: auto;
   }
   #info i {
     width: 16px;
     height: 16px;
+    margin-right: 5px;
     float: left;
-    margin-right: 8px;
     opacity: 1;
   }
   #info h3 {
     text-align: center;
-  }
-  #info .colaboraciones {
-    padding-top: 50px;
-  }
-  #info .colaboraciones .logo_p {
-    display: inline-block;
-    margin: 15px;
-  }
-  #info .colaboraciones .logo_p img {
-    height: 30px;
   }
   .footer {
     width: 100%;
@@ -294,7 +286,7 @@
   }
   .footer .info-buttons {
     font-size: 1.5em;
-    width: 80%;
+    width: 75%;
     margin: 0;
     display: inline-block;
   }
@@ -308,16 +300,15 @@
   }
   .footer .contact {
     margin: 0;
-    float: right;
     display: inline-block;
   }
   .footer .contact li {
-    height: 5%;
+    height: 1.8em;
     display: inline-block;
   }
   .footer .contact li a {
-    color: white;
     vertical-align: middle;
+    color: white;
     font-size: 1em;
   }
 }
