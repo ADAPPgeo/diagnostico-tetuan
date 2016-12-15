@@ -247,7 +247,6 @@ li {
   #mapid {
     bottom: 5px;
     z-index: -30000;
-    height: 100%;
   }
   #mapid button {
     position: fixed;
