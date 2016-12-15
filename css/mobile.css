@@ -147,7 +147,6 @@
   }
   #mapid {
     z-index: -1000;
-    height: 100%;
   }
   #mapid button {
     position: absolute;
