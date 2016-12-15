@@ -11,12 +11,15 @@
     height: 20px;
   }
   #one .navbar-brand {
-    display: inline-block;
+    padding: 2px;
+    font-size: 2em;
+    width: 100%;
+    top: 0;
   }
-  #one .navbar-brand a {
+  #one .navbar-brand h1 {
     vertical-align: middle;
     color: #001c41;
-    font-size: 1.2em;
+    font-size: 0.7em;
   }
   #one .navbar-brand img {
     padding: 2px;

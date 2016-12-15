@@ -18,8 +18,12 @@ body {
   font-size: 10.4px;
 }
 h1 {
+  text-align: center;
+  color: #042c5f;
   font-family: 'Big Noodle';
-  font-size: 2em;
+  font-size: 1em;
+  font-weight: 100;
+  margin: 0;
 }
 h2 {
   font-family: 'Big Noodle';
@@ -104,14 +108,15 @@ li {
     z-index: 20000;
   }
   #one .navbar-brand {
-    padding-top: 2px;
+    font-size: 2em;
+    width: 100%;
     padding-left: 10px;
+    top: 0;
     display: inline-block;
   }
-  #one .navbar-brand a {
+  #one .navbar-brand h1 {
     vertical-align: middle;
     color: #001c41;
-    font-size: 2em;
   }
   #one .navbar-brand img {
     padding: 5px;
