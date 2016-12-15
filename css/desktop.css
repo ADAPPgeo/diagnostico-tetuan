@@ -74,6 +74,19 @@ li {
   margin: 0;
   z-index: -1000;
 }
+.leaflet-bar a {
+  background-color: #001c41;
+  color: white;
+}
+.leaflet-bar a:hover {
+  background-color: #7cede9;
+  color: #001c41;
+}
+.leaflet-bar a.leaflet-disabled {
+  cursor: default;
+  background-color: #001c41;
+  color: #001c41;
+}
 .chart {
   width: 500px;
   height: 500px;
@@ -239,11 +252,6 @@ li {
     width: 20px;
     height: 20px;
   }
-  .leaflet-container .leaflet-control-attribution {
-    font-family: 'Ubuntu Condensed';
-    width: 100%;
-    font-size: .75em;
-  }
   #mapid {
     bottom: 5px;
     z-index: -30000;
@@ -294,19 +302,6 @@ li {
     width: 20px;
     height: 20px;
     margin: -10px;
-  }
-  .leaflet-bar a {
-    background-color: #001c41;
-    color: white;
-  }
-  .leaflet-bar a:hover {
-    background-color: #7cede9;
-    color: #001c41;
-  }
-  .leaflet-bar a.leaflet-disabled {
-    cursor: default;
-    background-color: #001c41;
-    color: #001c41;
   }
   .leaflet-popup-content-wrapper {
     background: #001c41;
@@ -378,9 +373,10 @@ li {
   .leaflet-container .landscape {
     width: 250px;
   }
-  .virtualscrllhome {
-    top: 150px;
-    height: 75%;
+  .leaflet-container .leaflet-control-attribution {
+    font-family: 'Ubuntu Condensed';
+    width: 100%;
+    font-size: .75em;
   }
   .leaflet-control-layers-toggle {
     display: none;
