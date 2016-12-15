@@ -306,7 +306,7 @@ li {
   }
   .leaflet-bar a.leaflet-disabled {
     cursor: default;
-    background-color: white;
+    background-color: #001c41;
     color: #001c41;
   }
   .leaflet-popup-content-wrapper {
