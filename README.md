@@ -15,7 +15,7 @@ Aplicación web para mostrar los resultados del diagnóstico de accesibilidad ef
 _(Incluidas en la carpeta vendors/)_
 
 * [AngularJS v1.5.8](https://angularjs.org/)
-* [angular-filter](https://github.com/a8m/angular-filter)
+* [angular-filter v0.5.9](https://github.com/a8m/angular-filter)
 * [ui-leaflet v2.0.0](https://github.com/angular-ui/ui-leaflet/)
 * [Leaflet v0.7.7](https://github.com/Leaflet/Leaflet)
 * [leaflet-label v0.2.1](https://github.com/Leaflet/Leaflet.label)
