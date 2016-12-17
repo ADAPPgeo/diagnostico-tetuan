@@ -39,13 +39,13 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
         markers:{},
         legend_anchoacera: {
             position: 'bottomleft',
-            colors: [ '#1413f9', '#008000', '#ffa500', '#ff0000'],
-            labels: [ 'ancho de acera >1.80 m','ancho de acera 1.20-1.80 m', 'ancho de acera 0.90-1.20 m', 'ancho de acera <0.90 m']
+            colors: [ '#1413f9', '#0bb10b','#008000', '#ffa500', '#ff0000'],
+            labels: [ 'ancho de acera >1.80 m', 'zona peatonal', 'ancho de acera 1.20-1.80 m', 'ancho de acera 0.90-1.20 m', 'ancho de acera <0.90 m']
         },
         legend_anchopaso: {
             position: 'bottomleft',
-            colors: [ '#008000', '#ffa500', '#ff0000'],
-            labels: [ 'ancho de paso > 1.20 m', 'ancho de paso: 0.90-1.20 m', 'ancho de paso < 0.90 m']
+            colors: [ '#0bb10b','#008000', '#ffa500', '#ff0000'],
+            labels: [ 'zona peatonal', 'ancho de paso > 1.20 m', 'ancho de paso: 0.90-1.20 m', 'ancho de paso < 0.90 m']
         },
         legend_pendiente: {
             position: 'bottomleft',
@@ -933,6 +933,21 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                     dashArray: '6',
                     opacity: 1
                 }
+            },
+            cuatrocaminos_ip_pedestrian: {
+                data: data.features,
+                filter: function(feature, layer) {
+                    if (feature.properties)
+                    return feature.properties.footway =='pedestrian';
+                },
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup($scope.popup_ip(feature,'peatonal'));
+                },
+                style: {
+                    weight: 5,
+                    color: '#0bb10b',
+                    opacity: 1
+                }
             }                
         });    
         angular.extend($scope.linegroup.cuatrocaminos_anchopaso, {
@@ -1141,21 +1156,6 @@ tetuanApp.controller("MapController", ['leafletMarkerEvents', '$scope', '$locati
                     weight: 5,
                     color: 'red',
                     dashArray: '6',
-                    opacity: 1
-                }
-            },
-            cuatrocaminos_ip_pedestrian: {
-                data: data.features,
-                filter: function(feature, layer) {
-                    if (feature.properties)
-                    return feature.properties.footway =='pedestrian';
-                },
-                onEachFeature: function (feature, layer) {
-                    layer.bindPopup($scope.popup_ip(feature,'peatonal'));
-                },
-                style: {
-                    weight: 5,
-                    color: '#0bb10b',
                     opacity: 1
                 }
             },
