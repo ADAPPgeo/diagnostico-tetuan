@@ -125,9 +125,9 @@
         <h3>Tramos de itinerario peatonal por acera, según su pendiente</h3>
         <ul>
             <li><i style="background:#ffffb2"></i>Tramo con pendiente entre 0 y 2 %</li>
-            <li><i style="background:#fecc5c"></i>Tramo con pendiente entre 0 y 2 %</li>
-            <li><i style="background:#fd8d3c"></i>Tramo con pendiente entre 0 y 2 %</li>
-            <li><i style="background:#f03b20"></i>Tramo con pendiente entre 0 y 2 %</li>
+            <li><i style="background:#fecc5c"></i>Tramo con pendiente entre 2 y 4 %</li>
+            <li><i style="background:#fd8d3c"></i>Tramo con pendiente entre 4 y 6 %</li>
+            <li><i style="background:#f03b20"></i>Tramo con pendiente entre 6 y 8 %</li>
             <li><i style="background:#bd0026"></i>Tramo con pendiente mayor al 8 %</li>
         </ul>        
         <p>Información obtenida mediante <strong>levantamiento topográfico</strong> en toda la zona de estudio del Barrio de Ventilla; y en las calles con aceras de menos de 1.80m de ancho en el barrio de Cuatro Caminos, tras el análisis de la cartografía municipal CM-1000</p>
@@ -197,7 +197,7 @@
     </div>
     <ul>
         <li ng-repeat="puntos in markers | filterBy:['tipo']:selectedtopic as moon"></li>
-    </ul>
+    </ul>   
     <script src="diagnostico-tetuan/vendors/leaflet/leaflet.js"></script>   
     <script src="diagnostico-tetuan/vendors/leaflet-label/leaflet-label.js"></script>    
     <script src="diagnostico-tetuan/vendors/angularjs/angular.min.js"></script>  
