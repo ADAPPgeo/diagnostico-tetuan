@@ -2,6 +2,8 @@
 
 Aplicación web para mostrar los resultados del diagnóstico de accesibilidad efectuados en los barrios de Almenara y Cuatro Caminos del Distrito de Tetuán.
 
+Puedes acceder a la aplicación en: [www.adappgeo.net](www.adappgeo.net/mapa/diagnosticotetuan)
+
 ## Funcionalidades
 
 * Visualizar la red de itinerarios peatonales urbanos según su ancho de acera, ancho de paso, pendiente y accesibilidad en forma de mapa.
